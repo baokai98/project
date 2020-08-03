@@ -32,15 +32,15 @@ def fight():
             my_hp = my_hp - you_pow
 
 
-        # 假如我的血量先小于0了，打印出我输了
-        if my_hp < 0:
+        # 假如我的血量先小于等于0了，打印出我输了
+        if my_hp <= 0:
             print('我的剩余血量是:', my_hp)
             print('你的剩余血量是:', you_hp)
             print('我输了')
             # 终止对打，跳出循环
             break
-        # 假如你的血量先小于0了，打印出我赢了
-        elif you_hp < 0:
+        # 假如你的血量先小于等于0了，打印出我赢了
+        elif you_hp <= 0:
             print('我的剩余血量是:', my_hp)
             print('你的剩余血量是:', you_hp)
 

@@ -8,4 +8,4 @@ from selenium import webdriver
 def test_selenium():
     driver = webdriver.Chrome()
     driver.get('https://hao.360.com/')
-    sleep(10)
+    sleep(15)

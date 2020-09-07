@@ -109,3 +109,4 @@ class Testweixin:
         print(f'剩余联系人数{afternum}')
         assert afternum == 1
 
+

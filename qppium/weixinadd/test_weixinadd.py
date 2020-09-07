@@ -54,17 +54,24 @@ class Testweixin:
             self.driver.find_element(MobileBy.XPATH, "//*[@text='女']").click()
         else:
             # 直接点击有时可以有时不行
-            # self.driver.find_element(MobileBy.XPATH, "//*[@text='男']").click()
+            self.driver.find_element(MobileBy.XPATH, "//*[@text='男']").click()
             # 显示等待
-            element = WebDriverWait(self.driver, 10).until(lambda x: x.find_element(MobileBy.XPATH, "//*[@text='男']"))
-            element.click()
+            # element = WebDriverWait(self.driver, 5).until(lambda x: x.find_element(MobileBy.XPATH, "//*[@text='男']"))
+            # element.click()
         self.driver.find_element(MobileBy.XPATH,
                                  "//*[contains(@text, '手机') and @class='android.widget.TextView']/..//*[@class='android.widget.EditText']").send_keys(phonenum)
         self.driver.find_element(MobileBy.ID, "com.tencent.wework:id/hvk").click()
         # sleep(2)
-        # print(self.driver.page_source)
-        # mytoast = self.driver.find_element(MobileBy.XPATH, "//*[@class='android.widget.Toast']").text
-        # assert "添加成功" == mytoast
+        # self.driver.find_element_by_id('com.tencent.wework:id/hv3').click()
+        # self.driver.find_element_by_id('com.tencent.wework:id/hvn').click()
+        # self.driver.find_element_by_id('com.tencent.wework:id/gf').send_keys(name)
+        # sleep(3)
+        # ell = self.driver.find_element_by_xpath(f"//*[@text='{name}']")
+        # addnum = len(ell)
+        # assert addnum > 1
+
+        mytoast = self.driver.find_element(MobileBy.XPATH, "//*[@class='android.widget.Toast']").text
+        assert "添加成功" == mytoast
     @pytest.mark.parametrize("name",get_datas()[1])
     def test_delconnect(self,name):
         # name ="盖伦"

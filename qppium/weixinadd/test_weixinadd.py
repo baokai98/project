@@ -41,6 +41,7 @@ class Testweixin:
         # gender = "男"
         # phonenum = "18288988888"
         self.driver.find_element(MobileBy.XPATH, "//*[@text='通讯录']").click()
+        # 滚动查找
         self.driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
                                  'new UiScrollable(new UiSelector()'
                                  '.scrollable(true).instance(0))'
@@ -92,6 +93,7 @@ class Testweixin:
         sleep(2)
         # self.driver.find_element_by_id('com.tencent.wework:id/djf').click()
         self.driver.find_element_by_id('com.tencent.wework:id/hvd').click()
+
         self.driver.find_element_by_xpath("//*[@text='编辑成员']").click()
         # self.driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
         #                          'new UiScrollable(new UiSelector()'
@@ -107,6 +109,8 @@ class Testweixin:
         eles1 = self.driver.find_elements(MobileBy.XPATH, f"//*[@text='{name}']")
         afternum = len(eles1)
         print(f'剩余联系人数{afternum}')
-        assert afternum == 1
+        # assert afternum == 1
+        # 未来防止名字有相同字符，用这样的方式断言更好
+        assert afternum == beforenum - 1
 
 

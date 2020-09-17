@@ -1,16 +1,20 @@
 from time import sleep
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 from pagobject.pages.add_member_page import AddMemberpage
 from pagobject.pages.contact_page import ContactPage
-from pagobject.testcases.BasePage import BasePage
+from pagobject.pages.BasePage import BasePage
 
 
 class MainPage(BasePage):
+    _base_url = "https://work.weixin.qq.com/wework_admin/frame#index"
+    _contant_click = (By.ID,'menu_contacts')
+    _add_member = (By.CSS_SELECTOR,"[node-type='addmember']")
     def go_to_contant(self):
-        self.driver.find_element_by_id('menu_contacts').click()
+        # 点击通讯录
+        # self.driver.find_element_by_id('menu_contacts').click()
+        self.find(*self._contant_click).click()
 
         return ContactPage(self.driver)
 
@@ -21,7 +25,9 @@ class MainPage(BasePage):
         # self.driver.get('https://work.weixin.qq.com/wework_admin/frame#index')
         # sleep(2)
 
-        self.driver.find_element_by_css_selector("[node-type='addmember']").click()
+        # self.driver.find_element_by_css_selector("[node-type='addmember']").click()
+        # 点击添加成员
+        self.find(*self._add_member).click()
         sleep(2)
 
         return AddMemberpage(self.driver)

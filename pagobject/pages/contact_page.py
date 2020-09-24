@@ -42,7 +42,7 @@ class ContactPage(BasePage):
     # 获取部门列表方法
     def get_partment_list(self):
         sleep(2)
-        # 获得成员列表
+        # 获得部门列表
         ele1 = self.finds(*self._addparment_list)
         # print(ele1)
         # list2 = []

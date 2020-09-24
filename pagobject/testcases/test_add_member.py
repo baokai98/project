@@ -1,4 +1,5 @@
 from pagobject.pages.main_page import MainPage
+
 """
 po 原则解读
 方法意义
@@ -17,6 +18,7 @@ cmd命令打开浏览器：chrome --remote-debugging-port=9222
 class TestAddMember:
     def setup_class(self):
         self.main = MainPage()
+
     def test_add_member(self):
         # self.main = MainPage()
         # 1.从首页跳转到添加成员页面
@@ -25,7 +27,7 @@ class TestAddMember:
         name = "蛮王"
         acctid = "55565"
         phone = "13888812346"
-        namelist1 = self.main.go_to_add_member().add_member(name,acctid,phone).save_member().get_member_list()
+        namelist1 = self.main.go_to_add_member().add_member(name, acctid, phone).save_member().get_member_list()
         assert name in namelist1
 
     def test_contact_member(self):
@@ -37,7 +39,8 @@ class TestAddMember:
         name = "蛮王"
         acctid = "55565"
         phone = "13888812346"
-        namelist2 = self.main.go_to_contant().go_to_add_member().add_member(name,acctid,phone).save_member().get_member_list()
+        namelist2 = self.main.go_to_contant().go_to_add_member().add_member(name, acctid,
+                                                                            phone).save_member().get_member_list()
         assert name in namelist2
 
     def test_addmember_fail(self):
@@ -45,16 +48,19 @@ class TestAddMember:
         name = "蛮子"
         acctid = "55565"
         phone = "13888812346"
-        namekist3 = self.main.go_to_add_member().add_member(name,acctid,phone).cancel_member().get_member_list()
+        namekist3 = self.main.go_to_add_member().add_member(name, acctid, phone).cancel_member().get_member_list()
         assert name not in namekist3
 
     def test_addpartment_save(self):
         patrment_name = "黑色玫瑰"
-        patrment_namelist1 = self.main.go_to_contant().add_partment().add_new_department(patrment_name).save_department().get_partment_list()
+        patrment_namelist1 = self.main.go_to_contant().add_partment().add_new_department(
+            patrment_name).save_department().get_partment_list()
 
         assert patrment_name in patrment_namelist1
+
     #
     def test_addpartment_cancel(self):
         patrment_name2 = "影流之主"
-        patrment_namelist2 = self.main.go_to_contant().add_partment().add_new_department(patrment_name2).cancel_department().get_partment_list()
-        assert patrment_name2 not in  patrment_namelist2
+        patrment_namelist2 = self.main.go_to_contant().add_partment().add_new_department(
+            patrment_name2).cancel_department().get_partment_list()
+        assert patrment_name2 not in patrment_namelist2

@@ -21,6 +21,8 @@ class Testweixin:
         caps["deviceName"] = "127.0.0.1:7555"
         caps["appPackage"] = "com.tencent.wework"
         caps["appActivity"] = ".launch.WwMainActivity"
+        # appium启动app时会自动清除app里面的数据，怎么做到启动app不清除数据呢？使用
+        # 'noReset': "True" # 解决
         caps["noReset"] = "true"
         # caps["dontStopAppOnReset"] = "true"
         # 等待动态页面空闲时间（预防动态页面拖时间）--打卡页面时间一直在刷新

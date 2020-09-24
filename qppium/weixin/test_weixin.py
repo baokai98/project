@@ -15,7 +15,7 @@ class Testweixin:
         caps["noReset"] = "true"
         # 等待动态页面空闲时间（预防动态页面拖时间）--打卡页面时间一直在刷新
         caps['settings[waitForIdleTimeout]'] = 1
-        # caps['settings[waitForIdleTimeout]'] = "1"
+
         self.driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         # 隐式等待
         self.driver.implicitly_wait(5)
@@ -61,6 +61,7 @@ class Testweixin:
         # 点击外出打卡
         self.driver.find_element_by_id("hgs").click()
         # 点击打卡按钮
+        # 打卡页面是动态元素，使用模糊匹配
         self.driver.find_element_by_xpath('//*[contains(@text, "次外出")]').click()
         # 获取打卡成功text
         result = self.driver.find_element_by_id("oh").text

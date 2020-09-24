@@ -8,7 +8,7 @@ from appium.webdriver.webdriver import WebDriver
 
 
 class BasePage:
-    def __init__(self, driver:WebDriver = None):
+    def __init__(self, driver: WebDriver = None):
         self.driver = driver
 
     # 封装一个find方法，通过self.driver.find_element方式传入一个locator（默认是元祖类型），并且给它解包

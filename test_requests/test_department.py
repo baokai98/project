@@ -12,9 +12,7 @@ class TestDepartment:
         self.token = r.json()["access_token"]
         self.ID = 2
     def test_add_department(self):
-
         add_url = f"https://qyapi.weixin.qq.com/cgi-bin/department/create?access_token={self.token}"
-        # get_department_url = f"https://qyapi.weixin.qq.com/cgi-bin/department/list?access_token={self.token}"
 
         data = {
                "name": "霍格沃兹",
